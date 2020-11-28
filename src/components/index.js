@@ -3,7 +3,7 @@
 //	left: '96px',
 //	width: '64px',
 //	height: '96px',
-//      children: []
+//      Children: []
 //}
 
 const { Children } = require("react");
@@ -11,10 +11,10 @@ const { Children } = require("react");
 function updateStructure(rec1, rec2) {
   if (contains(rec1, rec2)) {
     const relativeDim = relative(rec1, rec2);
-    return { ...rec1, children: [relativeDim] };
+    return { ...rec1, Children: [relativeDim] };
   } else if (contains(rec2, rec1)) {
     const relativeDim = relative(rec2, rec1);
-    return { ...rec2, children: [relativeDim] };
+    return { ...rec2, Children: [relativeDim] };
   } else {
     return { ...rec1 };
   }
@@ -25,7 +25,7 @@ function relative(rec1, rec2) {
   const rec2n = normalise(rec2);
 
   const res = {
-    children: rec2.children,
+    Children: rec2.Children,
   };
 
   if (rec2.top) {
