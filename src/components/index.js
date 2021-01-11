@@ -25,8 +25,8 @@ function relative(rec1, rec2) {
   const rec2n = normalise(rec2);
 
   const res = {
-    // children: rec2.children,
-    children: [],
+    children: rec2.children,
+    // children: [],
   };
 
   if (rec2.top) {
@@ -55,10 +55,10 @@ function contains(rec1, rec2) {
   const rec2n = normalise(rec2);
 
   if (
-    rec1n.x1 < rec2n.x1 &&
-    rec1n.y1 < rec2n.y1 &&
-    rec1n.x2 > rec2n.x2 &&
-    rec1n.y2 > rec2n.y2
+    rec1n.x1 <= rec2n.x1 &&
+    rec1n.y1 <= rec2n.y1 &&
+    rec1n.x2 >= rec2n.x2 &&
+    rec1n.y2 >= rec2n.y2
   ) {
     return true;
   }
