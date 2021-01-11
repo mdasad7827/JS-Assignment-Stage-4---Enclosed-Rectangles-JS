@@ -6,7 +6,7 @@
 //      children: []
 //}
 
-const { Children } = require("react");
+// const { Children } = require("react");
 
 function updateStructure(rec1, rec2) {
   if (contains(rec1, rec2)) {
@@ -68,32 +68,18 @@ function contains(rec1, rec2) {
 const H = 0;
 const W = 0;
 function normalise(rec) {
-  // return {
-  //   x1: rec.top
-  //     ? parseInt(rec.top)
-  //     : H - parseInt(rec.bottom) + parseInt(rec.height),
-  //   y1: rec.left
-  //     ? parseInt(rec.left)
-  //     : W - parseInt(rec.right) + parseInt(rec.width),
-  //   x2: rec.bottom
-  //     ? H - parseInt(rec.bottom)
-  //     : parseInt(rec.top) + parseInt(rec.height),
-  //   y2: rec.right
-  //     ? W - parseInt(rec.right)
-  //     : parseInt(rec.left) + parseInt(rec.width),
-  // };
   return {
     x1: rec.top
       ? parseInt(rec.top)
-      : parseInt(rec.bottom) + parseInt(rec.height),
+      : H - parseInt(rec.bottom) + parseInt(rec.height),
     y1: rec.left
       ? parseInt(rec.left)
-      : parseInt(rec.right) + parseInt(rec.width),
+      : W - parseInt(rec.right) + parseInt(rec.width),
     x2: rec.bottom
-      ? parseInt(rec.bottom)
+      ? H - parseInt(rec.bottom)
       : parseInt(rec.top) + parseInt(rec.height),
     y2: rec.right
-      ? parseInt(rec.right)
+      ? W - parseInt(rec.right)
       : parseInt(rec.left) + parseInt(rec.width),
   };
 }
