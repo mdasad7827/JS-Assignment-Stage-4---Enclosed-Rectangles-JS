@@ -25,7 +25,8 @@ function relative(rec1, rec2) {
   const rec2n = normalise(rec2);
 
   const res = {
-    children: rec2.children,
+    // children: rec2.children,
+    children: [],
   };
 
   if (rec2.top) {
